@@ -4,13 +4,11 @@
 
 # SSAFY PEDIA - DB 영화 추천 WEB
 
-#### 서울 3반 이민아, 서울 3반 조규태
+### 서울 3반 이민아, 서울 3반 조규태
 
 
 
-> final-pjt-front
->
-> final-pjt-back
+> Welcome to the **SSAFY PEDIA**
 
 
 
@@ -18,19 +16,41 @@
 
 
 
-### 0. Environment
+---
 
-### (1) 개발 환경
+## Index
 
-> Django 3.1.3
->
-> vue/cli 4.5.8
 
-### (2) 배포 서버 URL 
 
-> https://ssafypedia.netlify.app
+- [Environment](#environment)
+- [Team Information](#team-information)
+- [Structure](#structure)
+- [Front-end (Vue.js)](frontend)
+- [Back-end (Django Rest Framework)](#backend)
 
-### (3) Django Command
+
+
+---
+
+## Environment
+
+
+
+### 1. 개발 환경
+
+- Django 3.1.3
+
+- vue/cli 4.5.8
+
+
+
+### 2. 배포 서버 URL 
+
+- https://ssafypedia.netlify.app
+
+
+
+### 3. Django Command
 
 - [Django]
 
@@ -74,21 +94,9 @@
   - pip install django : django 설치
   - pip install djangorestframework : DRF 설치 
 
-    - `INSTALLED_APPS ` `'rest_framework',` (settings.py)
-
   - pip install django-cors-headers : cors-headers 생성 (django와 vuex)
 
-    - `INSTALLED_APPS ` `'corsheaders',` (settings.py)
-
-    - `CORS_ALLOW_ALL_ORIGINS` (settings.py)
-
-    - `MIDDLEWARE` (settings.py)
-
   - pip install djangorestframework-jwt : 토큰베이스 아이디 로그인
-
-    - obtain_jwt_token (urls.py)
-
-    - JWT_EXPIRATION_DELTA (setting.py)
 
 - 관리자 (admin.py)
 
@@ -102,7 +110,8 @@
   - python manage.py loaddata movies/movie.json : fixtures/movies/movie.json `movies.movie` table
 
 
-### (4) Vue.js Command
+
+### 4. Vue.js Command
 
 - [Vue.js]
 
@@ -129,9 +138,13 @@
   
   
 
-### 1. 팀 정보 
+---
 
-### (1) 팀원 정보
+## Team Information
+
+
+
+### 1. 팀원 정보
 
 - 이민아
 
@@ -143,7 +156,7 @@
 
 
 
-### (2) 소감
+### 2. 후기
 
 - 이민아
 
@@ -155,7 +168,72 @@
 
 
 
-### 2. 프로젝트 구조 - Front-end(Vue.js) & Back-end(DRF)
+---
+
+## Structure
+
+
+
+### 1. Structure 
+
+#### (1) Front-end (Vue.js)
+
+- public
+
+  - index.html
+
+- src
+
+  - App.vue
+
+  - router (Vue router)
+
+  - store (Vuex)
+
+  - views (Vue router)
+
+    - accounts
+
+      | accounts                         | components     | components        |
+      | -------------------------------- | -------------- | ----------------- |
+      | **Login.vue**                    |                |                   |
+      | **Signup.vue**                   |                |                   |
+      | **MyProfile.vue /  Profile.vue** | MyComments.vue | MyCommentList.vue |
+      |                                  | Movies.vue     |                   |
+      |                                  | ReviewList.vue |                   |
+
+    - mbtis
+
+      | mbtis        | components | components   | components     |
+      | ------------ | ---------- | ------------ | -------------- |
+      | **Mbti.vue** | Mbtis.vue  | MbtiList.vue | MbtiDetail.vue |
+
+    - movies
+
+      | movies              | components       | components       | components        |
+      | ------------------- | ---------------- | ---------------- | ----------------- |
+      | **Movie.vue**       | Movies.vue       |                  |                   |
+      | **Genre.vue**       | Movies.vue       |                  |                   |
+      | **Movies.vue**      | MovieList.vue    | MovieDetail.vue  |                   |
+      | **MovieDetail.vue** | ReviewList.vue   |                  |                   |
+      |                     | CreateReview.vue |                  |                   |
+      | **ReviewList.vue**  | Review.vue       | ReviewDetail.vue | CreateComment.vue |
+
+#### (2) Back-end (Django Rest Framework)
+
+| movies                                                       | accounts                   |
+| ------------------------------------------------------------ | -------------------------- |
+| 전체 영화 조회(GET)<br>개봉일순, 평점순 추천 영화 조회 (GET)<br>장르별 추천 영화 조회 (GET) | 회원가입                   |
+| mbti 추천 영화 조회 (GET)                                    |                            |
+| 상세 mbti 영화 조회(GET)                                     | 로그인                     |
+| 상세 영화 조회(GET) <br>상세 영화 좋아요(POST) <br>상세 영화 전체 리뷰 조회(GET) 리뷰 생성(POST) |                            |
+| 상세 영화 상세 리뷰 조회(GET), 수정(PUT), 삭제(DELETE)       |                            |
+| 상세 영화 상세 리뷰 전체 댓글 조회(GET)  <br>상세 영화 상세 리뷰 댓글 생성(POST) <br/>상세 영화 상세 리뷰 상세 댓글 삭제 (DELETE) |                            |
+| 사용자가 좋아요한 영화 (GET) <br>사용자가 생성한 리뷰 조회 (GET) <br/>사용자가 생성한 댓글 조회 (GET) | 본인 프로필<br>타인 프로필 |
+
+
+
+### 2. 목표 및 구현
 
 >  목표 서비스 및 실제 구현 정도 비교 
 
@@ -195,11 +273,17 @@
 
 
 
-### 3. Front-end (Vue.js)
+---
 
-> Welcome to **SSAFY PEDIA**
+## Front-end
 
-### 3.1 HomePage Recommend
+
+
+> Vue.js
+
+
+
+### 1. HomePage Recommend
 
 
 
@@ -227,7 +311,7 @@
 
 
 
-### 3.2 Genre Recommend 
+### 2. Genre Recommend 
 
 
 
@@ -249,7 +333,7 @@
 
 
 
-### 3.3 Mbti Recommend 
+### 3. Mbti Recommend 
 
 
 
@@ -283,7 +367,7 @@
 
 
 
-### 3.4 SignUp & Login
+### 4. SignUp & Login
 
 
 
@@ -309,7 +393,7 @@
 
 
 
-### 3.5 My Profile
+### 5. My Profile
 
 
 
@@ -357,7 +441,7 @@
 
 
 
-### 3.6 Movie Detail  
+### 6. Movie Detail  
 
  
 
@@ -383,7 +467,7 @@
 
 
 
-### 3.7 Review Detail
+### 7. Review Detail
 
 
 
@@ -447,7 +531,7 @@
 
 ### ![ReviewDetail2](README.assets/ReviewDetail2.PNG)
 
-### 3.8 Profile 
+### 8. Profile 
 
 
 
@@ -491,18 +575,26 @@
 
 ![Profile2](README.assets/Profile2.PNG)
 
+----
+
+## Back-end
 
 
-### 4. Back-end (Django Rest Framework)
 
-### 4.1 구조 
+> Django Rest Framework
+
+
+
+### 1. Folder 
 
 |  Project  |   App    |   Data   |
 | :-------: | :------: | :------: |
 | final_pjt |  movies  | json_api |
 |           | accounts |          |
 
-### 4.2 settings.py (Project)
+
+
+### 2. settings.py (Project)
 
 - `INSTALLED_APPS `
   - app 등록 (movies, accounts)
@@ -541,9 +633,9 @@ JWT_AUTH = {
 
 
 
-### 4.3 urls.py (Project / App) 
+### 3. urls.py (Project / App) 
 
-### (1) final_pjt (Project) 
+#### (1) final_pjt (Project) 
 
 - [urls.py]
 
@@ -558,7 +650,7 @@ urlpatterns = [
 ]
 ```
 
-### (2) accounts (App) 
+#### (2) accounts (App) 
 
 - [urls.py]
 
@@ -581,7 +673,7 @@ urlpatterns = [
 ]
 ```
 
-### (3) movies (App) 
+#### (3) movies (App) 
 
 - [urls.py]
 
@@ -632,9 +724,9 @@ urlpatterns = [
 
 
 
-### 4.4 models.py (App)
+### 4. models.py (App)
 
-### (1) 외부 DB JSON (Data)
+#### (1) 외부 DB JSON (Data)
 
 > TMDB API_KEY JSON DATABASE
 
@@ -745,11 +837,11 @@ if __name__ == '__main__':
         json.dump(movies, f, ensure_ascii=False, indent="\t")
 ```
 
-### (2) 내부 DB ERD (App) 
+#### (2) 내부 DB ERD (App) 
 
 ![SSAFY_PEDIA_EDR](README.assets/SSAFY_PEDIA_EDR-1622100369476.jpg)
 
-### (3) accounts (App) 
+#### (3) accounts (App) 
 
 - [models.py]
 
@@ -762,7 +854,7 @@ class User(AbstractUser):
     pass
 ```
 
-### (4) movies (App) 
+#### (4) movies (App) 
 
 - class Mbti
   - title, overview, release_date, poster_path, vote_average
@@ -838,9 +930,9 @@ class Comment(models.Model):
 
 
 
-### 4.5 serializers.py (App) 
+### 5. serializers.py (App) 
 
-### (1) accounts (App)  
+#### (1) accounts (App)  
 
 - user 
 
@@ -877,7 +969,7 @@ class UserSerializer(serializers.ModelSerializer):
         read_only_fields = ('reviews', 'like_movies', 'comments',)
 ```
 
-### (2) movies (App) 
+#### (2) movies (App) 
 
 - class CommentSerializer
 
@@ -971,9 +1063,9 @@ class MbtiSerializer(serializers.ModelSerializer):
 
 
 
-### 4.6 accounts & movies views.py (App) 
+### 6. accounts & movies views.py (App) 
 
-### (1) accounts (App) 
+#### (1) accounts (App) 
 
 - 회원가입 : def signup
 
@@ -1018,7 +1110,7 @@ def profile_search(request, user_pk):
     return Response(serializer.data)
 ```
 
-### (2) movies (App) 
+#### (2) movies (App) 
 
 - MBTI Movie (models.py **class Mbti**)
 
@@ -1383,9 +1475,9 @@ def user_comments(request, user_pk):
 
 
 
-### 4.7 admin.py (App)
+### 7. admin.py (App)
 
-### (1) accounts (App) 
+#### (1) accounts (App) 
 
 - [admin.py]
 
@@ -1398,7 +1490,7 @@ from .models import User
 admin.site.register(User, UserAdmin)
 ```
 
-### (2) movies (App) 
+#### (2) movies (App) 
 
 - [admin.py]
 
