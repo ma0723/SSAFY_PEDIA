@@ -25,8 +25,8 @@
 - [Environment](#environment)
 - [Team Information](#team-information)
 - [Structure](#structure)
-- [Front-end (Vue.js)](frontend)
-- [Back-end (Django Rest Framework)](#backend)
+- [Front-end (Vue.js)](#front-end)
+- [Back-end (Django Rest Framework)](#back-end)
 
 
 
